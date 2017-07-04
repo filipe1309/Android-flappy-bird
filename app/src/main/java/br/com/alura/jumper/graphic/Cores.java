@@ -12,4 +12,10 @@ public class Cores {
         paint.setColor(0xFFFF0000); // ARGB
         return paint;
     }
+
+    public static Paint getCorDoCano() {
+        Paint verde = new Paint();
+        verde.setColor(0xFF00FF00); // ARGB
+        return verde;
+    }
 }
