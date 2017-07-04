@@ -9,6 +9,7 @@ import android.view.SurfaceView;
 
 import br.com.alura.jumper.R;
 import br.com.alura.jumper.elements.Passaro;
+import br.com.alura.jumper.graphic.Tela;
 
 /**
  * Created by filipe1309 on 03/07/17.
@@ -18,18 +19,21 @@ public class Game extends SurfaceView implements Runnable {
     private boolean isRunning = true;
     private SurfaceHolder holder = getHolder();
     private Passaro passaro;
-    private Bitmap back;
+    private Bitmap background;
+    private final Tela tela;
 
     public Game(Context context) {
         super(context);
 
+        tela = new Tela(context);
         inicializaElementos();
     }
 
     private void inicializaElementos() {
         passaro = new Passaro();
 
-        back = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+        background = Bitmap.createScaledBitmap(back, back.getWidth(), tela.getAltura(), false);
     }
 
     @Override
@@ -38,7 +42,7 @@ public class Game extends SurfaceView implements Runnable {
             if (!holder.getSurface().isValid()) continue;
             Canvas canvas = holder.lockCanvas();
             // draw game components
-            canvas.drawBitmap(back, 0, 0, null);
+            canvas.drawBitmap(background, 0, 0, null);
             passaro.desenhaNoCanvas(canvas);
             passaro.cai();
 
