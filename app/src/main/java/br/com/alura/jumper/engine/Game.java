@@ -4,18 +4,17 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
 import br.com.alura.jumper.R;
 import br.com.alura.jumper.elements.Passaro;
 import br.com.alura.jumper.graphic.Tela;
 
-/**
- * Created by filipe1309 on 03/07/17.
- */
 
-public class Game extends SurfaceView implements Runnable {
+public class Game extends SurfaceView implements Runnable, View.OnTouchListener {
     private boolean isRunning = true;
     private SurfaceHolder holder = getHolder();
     private Passaro passaro;
@@ -27,6 +26,8 @@ public class Game extends SurfaceView implements Runnable {
 
         tela = new Tela(context);
         inicializaElementos();
+
+        setOnTouchListener(this);
     }
 
     private void inicializaElementos() {
@@ -56,5 +57,11 @@ public class Game extends SurfaceView implements Runnable {
 
     public void pausa() {
         isRunning = false;
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        passaro.pula();
+        return false;
     }
 }

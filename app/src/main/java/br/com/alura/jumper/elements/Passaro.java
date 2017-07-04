@@ -5,10 +5,6 @@ import android.graphics.Paint;
 
 import br.com.alura.jumper.graphic.Cores;
 
-/**
- * Created by filipe1309 on 03/07/17.
- */
-
 public class Passaro {
 
     private static final float X = 100;
@@ -26,5 +22,9 @@ public class Passaro {
 
     public void cai() {
         this.altura += 5;
+    }
+
+    public void pula() {
+        this.altura -= 150;
     }
 }
