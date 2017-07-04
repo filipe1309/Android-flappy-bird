@@ -23,4 +23,8 @@ public class Passaro {
     public void desenhaNoCanvas(Canvas canvas) {
         canvas.drawCircle(X, altura, RAIO, VERMELHO);
     }
+
+    public void cai() {
+        this.altura += 5;
+    }
 }
