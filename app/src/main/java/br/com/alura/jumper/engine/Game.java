@@ -53,6 +53,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
             passaro.cai();
 
             cano.desenhaNo(canvas);
+            cano.move();
 
             holder.unlockCanvasAndPost(canvas);
         }

@@ -31,4 +31,8 @@ public class Cano {
     private void desenhaCanoInferiorNo(Canvas canvas) {
         canvas.drawRect(posicao, alturaDoCanoInferior, posicao + LARGURA_DO_CANO, tela.getAltura(), VERDE);
     }
+
+    public void move() {
+        this.posicao -= 5;
+    }
 }
