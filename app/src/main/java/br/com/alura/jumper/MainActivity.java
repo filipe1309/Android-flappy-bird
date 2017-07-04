@@ -2,7 +2,6 @@ package br.com.alura.jumper;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import br.com.alura.jumper.engine.Game;
