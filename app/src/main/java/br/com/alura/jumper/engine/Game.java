@@ -11,6 +11,7 @@ import android.view.View;
 
 import br.com.alura.jumper.R;
 import br.com.alura.jumper.elements.Cano;
+import br.com.alura.jumper.elements.Canos;
 import br.com.alura.jumper.elements.Passaro;
 import br.com.alura.jumper.graphic.Tela;
 
@@ -23,7 +24,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
     private Passaro passaro;
     private Bitmap background;
     private final Tela tela;
-    private Cano cano;
+    private Canos canos;
 
     public Game(Context context) {
         super(context);
@@ -36,7 +37,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
 
     private void inicializaElementos() {
         passaro = new Passaro();
-        cano = new Cano(tela, 400);
+        canos = new Canos(tela);
 
         Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.background);
         background = Bitmap.createScaledBitmap(back, back.getWidth(), tela.getAltura(), false);
@@ -52,8 +53,8 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
             passaro.desenhaNoCanvas(canvas);
             passaro.cai();
 
-            cano.desenhaNo(canvas);
-            cano.move();
+            canos.desenhaNo(canvas);
+            canos.move();
 
             holder.unlockCanvasAndPost(canvas);
         }
