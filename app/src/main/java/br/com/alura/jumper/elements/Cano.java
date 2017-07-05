@@ -6,10 +6,6 @@ import android.graphics.Paint;
 import br.com.alura.jumper.graphic.Cores;
 import br.com.alura.jumper.graphic.Tela;
 
-/**
- * Created by filipe1309 on 03/07/17.
- */
-
 public class Cano {
     private static final int TAMANHO_DO_CANO = 250;
     private static final Paint VERDE = Cores.getCorDoCano();
@@ -17,15 +13,22 @@ public class Cano {
     private int posicao;
     private int alturaDoCanoInferior;
     private Tela tela;
+    private int alturaDoCanoSuperior;
 
     public Cano(Tela tela, int posicao) {
         this.tela = tela;
         alturaDoCanoInferior = tela.getAltura() - TAMANHO_DO_CANO;
         this.posicao = posicao;
+        alturaDoCanoSuperior = 0 + TAMANHO_DO_CANO;
     }
 
     public void desenhaNo(Canvas canvas) {
+        desenhaCanoSuperiorNo(canvas);
         desenhaCanoInferiorNo(canvas);
+    }
+
+    private void desenhaCanoSuperiorNo(Canvas canvas) {
+        canvas.drawRect(posicao, 0, posicao + LARGURA_DO_CANO, alturaDoCanoSuperior, VERDE);
     }
 
     private void desenhaCanoInferiorNo(Canvas canvas) {
