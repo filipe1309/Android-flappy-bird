@@ -17,9 +17,13 @@ public class Cano {
 
     public Cano(Tela tela, int posicao) {
         this.tela = tela;
-        alturaDoCanoInferior = tela.getAltura() - TAMANHO_DO_CANO;
         this.posicao = posicao;
-        alturaDoCanoSuperior = 0 + TAMANHO_DO_CANO;
+        alturaDoCanoInferior = tela.getAltura() - TAMANHO_DO_CANO - valorAleatorio();
+        alturaDoCanoSuperior = 0 + TAMANHO_DO_CANO + valorAleatorio();
+    }
+
+    private int valorAleatorio() {
+        return (int) (Math.random() * 150);
     }
 
     public void desenhaNo(Canvas canvas) {
