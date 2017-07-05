@@ -42,4 +42,12 @@ public class Cano {
     public void move() {
         this.posicao -= 5;
     }
+
+    public boolean saiuDaTela() {
+        return posicao + LARGURA_DO_CANO < 0;
+    }
+
+    public int getPosicao() {
+        return posicao;
+    }
 }
