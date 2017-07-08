@@ -21,6 +21,7 @@ public class Cores {
         branco.setColor(0xFFFFFFFF); // ARGB
         branco.setTextSize(80);
         branco.setTypeface(Typeface.DEFAULT_BOLD);
+        branco.setShadowLayer(3, 5, 5, 0xFF000000);
         return branco;
     }
 }
