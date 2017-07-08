@@ -18,4 +18,10 @@ public class Cores {
         verde.setColor(0xFF00FF00); // ARGB
         return verde;
     }
+
+    public static Paint getCorDaPontuacao() {
+        Paint branco = new Paint();
+        branco.setColor(0xFFFFFFFF); // ARGB
+        return branco;
+    }
 }

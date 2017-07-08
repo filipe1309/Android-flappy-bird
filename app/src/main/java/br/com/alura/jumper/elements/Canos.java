@@ -20,8 +20,10 @@ public class Canos {
     public static final int QUANTIDADE_DE_CANOS = 5;
     private final List<Cano> canos = new ArrayList<Cano>();
     private final Tela tela;
+    private final Pontuacao pontuacao;
 
-    public Canos(Tela tela) {
+    public Canos(Tela tela, Pontuacao pontuacao) {
+        this.pontuacao = pontuacao;
         this.tela = tela;
         int posicao = 400;
 
@@ -44,6 +46,7 @@ public class Canos {
             Cano cano = iterator.next();
             cano.move();
             if (cano.saiuDaTela()) {
+                pontuacao.aumenta();
                 // create another pipe
                 iterator.remove();
                 Cano outroCano = new Cano(tela, getMaximo() + DISTANCIA_ENTRE_CANOS);
