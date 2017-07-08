@@ -1,10 +1,7 @@
 package br.com.alura.jumper.graphic;
 
 import android.graphics.Paint;
-
-/**
- * Created by filipe1309 on 03/07/17.
- */
+import android.graphics.Typeface;
 
 public class Cores {
     public static Paint getCorDoPassaro() {
@@ -22,6 +19,8 @@ public class Cores {
     public static Paint getCorDaPontuacao() {
         Paint branco = new Paint();
         branco.setColor(0xFFFFFFFF); // ARGB
+        branco.setTextSize(80);
+        branco.setTypeface(Typeface.DEFAULT_BOLD);
         return branco;
     }
 }
