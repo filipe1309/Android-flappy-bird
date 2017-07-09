@@ -61,6 +61,10 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
 
             pontuacao.desenhaNo(canvas);
 
+            if (new VerificadorDeColisao(passaro, canos).temColisao()) {
+                isRunning = false;
+            }
+
             holder.unlockCanvasAndPost(canvas);
         }
     }
