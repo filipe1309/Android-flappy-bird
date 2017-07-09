@@ -12,6 +12,7 @@ import android.view.View;
 import br.com.alura.jumper.R;
 import br.com.alura.jumper.elements.Cano;
 import br.com.alura.jumper.elements.Canos;
+import br.com.alura.jumper.elements.GameOver;
 import br.com.alura.jumper.elements.Passaro;
 import br.com.alura.jumper.elements.Pontuacao;
 import br.com.alura.jumper.graphic.Tela;
@@ -62,6 +63,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
             pontuacao.desenhaNo(canvas);
 
             if (new VerificadorDeColisao(passaro, canos).temColisao()) {
+                new GameOver(tela).desenhaNo(canvas);
                 isRunning = false;
             }
 
