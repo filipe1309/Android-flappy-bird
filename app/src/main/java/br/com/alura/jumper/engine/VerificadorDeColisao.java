@@ -13,6 +13,6 @@ class VerificadorDeColisao {
     }
 
     public boolean temColisao() {
-        return false;
+        return canos.temColisaoCom(passaro);
     }
 }
