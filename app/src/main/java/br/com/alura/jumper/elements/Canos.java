@@ -1,5 +1,6 @@
 package br.com.alura.jumper.elements;
 
+import android.content.Context;
 import android.graphics.Canvas;
 
 import java.util.ArrayList;
@@ -7,8 +8,6 @@ import java.util.List;
 import java.util.ListIterator;
 
 import br.com.alura.jumper.graphic.Tela;
-
-import static br.com.alura.jumper.R.drawable.cano;
 
 /**
  * Created by filipe1309 on 04/07/17.
@@ -20,16 +19,18 @@ public class Canos {
     public static final int QUANTIDADE_DE_CANOS = 5;
     private final List<Cano> canos = new ArrayList<Cano>();
     private final Tela tela;
+    private Context context;
     private final Pontuacao pontuacao;
 
-    public Canos(Tela tela, Pontuacao pontuacao) {
+    public Canos(Tela tela, Pontuacao pontuacao, Context context) {
         this.pontuacao = pontuacao;
         this.tela = tela;
+        this.context = context;
         int posicao = 400;
 
         for (int i = 0; i < QUANTIDADE_DE_CANOS; i++) {
             posicao += DISTANCIA_ENTRE_CANOS;
-            Cano cano = new Cano(tela, posicao);
+            Cano cano = new Cano(tela, posicao, context);
             canos.add(cano);
         }
     }
@@ -49,7 +50,7 @@ public class Canos {
                 pontuacao.aumenta();
                 // create another pipe
                 iterator.remove();
-                Cano outroCano = new Cano(tela, getMaximo() + DISTANCIA_ENTRE_CANOS);
+                Cano outroCano = new Cano(tela, getMaximo() + DISTANCIA_ENTRE_CANOS, context);
                 iterator.add(outroCano);
             }
         }

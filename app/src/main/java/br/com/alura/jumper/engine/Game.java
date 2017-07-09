@@ -10,14 +10,11 @@ import android.view.SurfaceView;
 import android.view.View;
 
 import br.com.alura.jumper.R;
-import br.com.alura.jumper.elements.Cano;
 import br.com.alura.jumper.elements.Canos;
 import br.com.alura.jumper.elements.GameOver;
 import br.com.alura.jumper.elements.Passaro;
 import br.com.alura.jumper.elements.Pontuacao;
 import br.com.alura.jumper.graphic.Tela;
-
-import static br.com.alura.jumper.R.drawable.cano;
 
 
 public class Game extends SurfaceView implements Runnable, View.OnTouchListener {
@@ -43,7 +40,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
     private void inicializaElementos() {
         passaro = new Passaro(tela, context);
         pontuacao = new Pontuacao();
-        canos = new Canos(tela, pontuacao);
+        canos = new Canos(tela, pontuacao, context);
 
         Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.background);
         background = Bitmap.createScaledBitmap(back, back.getWidth(), tela.getAltura(), false);
