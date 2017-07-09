@@ -26,6 +26,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
     private Passaro passaro;
     private Bitmap background;
     private final Tela tela;
+    private Context context;
     private Canos canos;
     private Pontuacao pontuacao;
 
@@ -33,13 +34,14 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
         super(context);
 
         tela = new Tela(context);
+        this.context = context;
         inicializaElementos();
 
         setOnTouchListener(this);
     }
 
     private void inicializaElementos() {
-        passaro = new Passaro(tela);
+        passaro = new Passaro(tela, context);
         pontuacao = new Pontuacao();
         canos = new Canos(tela, pontuacao);
 
