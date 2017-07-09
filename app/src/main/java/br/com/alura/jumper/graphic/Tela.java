@@ -5,10 +5,6 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-/**
- * Created by filipe1309 on 03/07/17.
- */
-
 public class Tela {
 
     private final DisplayMetrics metrics;
@@ -22,5 +18,9 @@ public class Tela {
 
     public int getAltura() {
         return metrics.heightPixels;
+    }
+
+    public int getLargura() {
+        return metrics.widthPixels;
     }
 }
