@@ -18,6 +18,7 @@ import br.com.alura.jumper.graphic.Tela;
 
 
 public class Game extends SurfaceView implements Runnable, View.OnTouchListener {
+    private final Som som;
     private boolean isRunning = true;
     private SurfaceHolder holder = getHolder();
     private Passaro passaro;
@@ -29,16 +30,18 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener 
 
     public Game(Context context) {
         super(context);
+        this.context = context;
 
         tela = new Tela(context);
-        this.context = context;
+        som = new Som(context);
+
         inicializaElementos();
 
         setOnTouchListener(this);
     }
 
     private void inicializaElementos() {
-        passaro = new Passaro(tela, context);
+        passaro = new Passaro(tela, context, som);
         pontuacao = new Pontuacao();
         canos = new Canos(tela, pontuacao, context);
 
